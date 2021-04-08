@@ -1,0 +1,619 @@
+body{
+    margin: 0;
+
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    color: gray;
+    background-color: #fff;
+    /* сглаживание углов у текста*/
+    -webkit-font-smoothing: antialiased;
+}
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6{
+    margin: 0;
+}
+
+p{
+    margin: 0 0 10px;
+}
+.container{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Header
+==============*/
+
+.header{
+    width: 100%;
+    height: 100px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+}
+.header.fixed{
+    position: fixed;
+    background-color: #30344e;
+    height: auto;
+
+}
+.header.fixed .header__inner{
+    padding: 15px;
+    border-bottom: 0;
+}
+.header__inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #50536a;
+    padding: 35px 0px;
+}
+
+.nav{
+    display: flex;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.nav__link{
+    margin-left: 50px;
+    color: white;
+    text-decoration: none;
+    opacity: 0.75;
+    transition: opacity 0.2s linear;
+}
+.nav__link:first-child{
+    margin-left: 0;
+}
+.nav__link:hover{
+    opacity: 1;
+}
+/* Intro */
+.intro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    height: 750px;
+    padding-top: 100px;
+
+    background: #30344e url(img/header-bg.jpg) center no-repeat;
+    background-size: cover;
+
+}
+.intro__inner{
+    width: 100%;
+    max-width: 970px;
+    margin: 0 auto;
+    text-align: center;
+}
+.intro__title{
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 65px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.1;
+
+    margin-bottom: 30px;
+}
+.intro__subtitle{
+    color: white;
+    font-size: 22px;
+    line-height: 1.5;
+    font-weight: 400;
+    margin-bottom: 60px;
+}
+
+.btn{
+
+    display: inline-block;
+    vertical-align: top;
+    padding: 19px 46px 18px 54px;
+
+    border-radius: 2px;
+
+    font-family: inherit;
+    border: 0;
+    cursor: pointer;
+
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.btn--red{
+    background-color: #e84545;
+
+    transition: background 0.2s linear;
+}
+.btn--red:hover{
+    background-color: #a52f2f;
+}
+.btn--long{
+    min-width: 280px;
+}
+
+
+/* ICO */
+
+.ico{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 100px 0px;
+}
+.ico-item{
+    width: 33.33333%;
+    text-align: center;
+    padding: 0 40px;
+    margin: 25px 0;
+}
+.ico__png{
+    margin-bottom: 30px;
+}
+.ico-title{
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    color: #2d3033;
+
+    margin-bottom: 25px;
+}
+.ico_text{
+    font-size: 14px;
+    line-height: 1.5;
+    color: #6c7279;
+}
+
+/* Works */
+
+.works{
+    display: flex;
+    flex-wrap: wrap;
+}
+.works-item{
+    width: 25%;
+    height: 350px;
+    border-bottom: 1px solid white;
+    border-right: 1px solid white;
+/*  Чтобы картинка была относительная ширины*/
+    position: relative;
+    overflow: hidden;
+}
+.works-img{
+    min-width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    transform: translate3d(-50%, -50%, 0)
+}
+.works__content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background-color: rgb(232, 69, 69, 0.9);
+    opacity: 0;
+
+    text-align: center;
+
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+
+    transition: opacity 0.5s linear;
+}
+.works__content:hover{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background-color: rgb(232, 69, 69, 0.9);
+    opacity: 1;
+
+    text-align: center;
+
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+.works__title{
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    margin-bottom: 10px;
+}
+.works__text{
+    color: white;
+    font-size: 14px;
+}
+
+/* Team */
+.team{
+    margin: 100px 0 70px;
+}
+.team_inner{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+.team__item{
+    width: 25%;
+    padding: 0 15px;
+    margin-bottom: 30px;
+}
+/* Для адаптивности фотки */
+.team-photo{
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+.team-name{
+    font-size: 22px;
+    color: #2d3033;
+    margin-bottom: 8px;
+}
+.team-prof{
+    font-size: 13px;
+    color: #e84545;
+    text-transform: uppercase;
+
+    margin-bottom: 15px;
+}
+.team-text{
+    font-size: 14px;
+    line-height: 1.5;
+    color: #6c7279;
+}
+
+/* social */
+.social{
+    display: flex;
+}
+.social-footer{
+    justify-content: center;
+}
+.social-href{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 15px;
+    margin-right: 4px;
+
+    height: 40px;
+    width: 40px;
+
+    background-color: #fff;
+    border: 1px solid #00aaff;
+
+    transition: background-color 0.2s linear;
+}
+.social-footer .social-href{
+    background-color: transparent;
+    border-width: 2px;
+    border-color: white;
+    border-radius: 2px;
+}
+.social-footer .social-href:hover{
+    background-color: white;
+}
+.social-footer .social-ico{
+    fill: white;
+}
+.social-footer .social-href:hover .social-ico{
+    fill: #1283f5;
+}
+.social-href:hover{
+    background-color: rgba(0, 0, 0, 0);
+}
+.social-href:hover .social-ico{
+    fill: #000000;
+}
+.social-ico{
+    display: block;
+    height: 20px;
+/*  Цвет для svg  */
+    fill: #c6cacc ;
+    transition: fill 0.2s linear;
+}
+
+/*Testimonials*/
+.testimonials{
+    background-color: #53354a;
+    overflow: hidden;
+}
+.testimonials-item{
+    display: flex;
+    flex-wrap: wrap;
+}
+.testimonials-photo{
+    width: 50%;
+    height: 500px;
+    position: relative;
+}
+.testimonials-img{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    z-index: 1;
+    /* Центрирование фотки */
+    transform: translateY(-50%);
+}
+.testimonials-content{
+    width: 50%;
+    padding-left: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.testimonials-text{
+    font-family: 'Cardo', sans-serif;
+    font-size: 36px;
+    font-style: italic;
+    line-height: 1.2;
+    color: #fff;
+    margin-bottom: 20px;
+}
+.testimonials-author{
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+
+}
+
+/*Download
+====================*/
+.download{
+    margin: 90px 0;
+    text-align: center;
+}
+.download_title{
+    font-size: 28px;
+    font-weight: 300;
+    color: #2d3033;
+    margin-bottom: 10px;
+}
+.download_text{
+    font-size: 13px;
+    font-weight: 700;
+    color: #2d3033;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+/*Footer*/
+.footer{
+    background: #3a3e64;
+}
+.footer__inner{
+    padding: 70px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.footer__block{
+    text-align: center;
+    width: 33%;
+    padding: 0 15px;
+}
+.footer__title{
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+.footer__address{
+    color: rgba(255, 255, 255, 0.5);
+    font-style: normal;
+    font-size: 14px;
+    line-height: 1.5;
+}
+.footer__text{
+    margin-top: 21px;
+    font-weight: 14px;
+    color:
+}
+footer__block .social{
+    fill: black;
+    border: 0;
+}
+
+/* Copyright */
+.copyright{
+    background-color: #313454;
+    padding: 20px 0px;
+}
+.cp_text{
+    text-align: center;
+    color: #808080;
+    font-size: 14px;
+    line-height: 1.5;
+}
+.cp_text span{
+    color: white;
+}
+
+.burger{
+    display: none;
+}
+.burger-item{
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: white;
+
+
+    position: relative;
+}
+.burger-item::before, .burger-item::after{
+    content: "";
+    position: absolute;
+    background-color: #fff;
+    right: 0;
+    z-index: 1;
+}
+.burger-item::before{
+    top: -8px;
+    width: 40px;
+    height: 100%;
+}
+.burger-item::after{
+    bottom: -8px;
+    width: 20px;
+    height: 100%;
+}
+button{
+    background: none;
+    border: 0;
+    outline: none;
+    padding: 9px 2px;
+    cursor: pointer;
+}
+/* media */
+@media(max-width: 1300px){
+    .works-item{
+        width: 50%;
+    }
+} /* бургер меню */
+@media(max-width: 991px){
+    .nav{
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 100%;
+        flex-direction: column;
+        width: 100%;
+        text-align: right;
+        background-color: #313454;
+    }
+    .nav.show{
+        display: flex;
+    }
+    .nav__link{
+        padding: 9px 15px;
+    }
+    .burger{
+        display: block;
+    }
+    .intro__title{
+        font-size: 41px;
+    }
+    .ico-item{
+        width: 50%;
+    }
+    .team__item{
+        width: 50%;
+        text-align: center;
+    }
+    .team-photo{
+        margin: 0 auto;
+    }
+    .social{
+        justify-content: center;
+    }
+    .testimonials-photo{
+        width: 100%;
+        margin: 20px 0 40px;
+    }
+    .testimonials-content{
+        width: 100%;
+        padding-left: 0;
+        padding-bottom: 15px;
+        text-align: center;
+    }
+}
+@media(max-width: 767px){
+    .intro{
+        height: auto;
+        padding-top: 130px;
+        padding-bottom: 100px;
+    }
+    .intro__title{
+        font-size: 30px;
+    }
+    .intro__subtitle{
+        font-size: 16px;
+        margin-bottom: 30;
+    }
+    .ico{
+        margin: 40px 0;
+    }
+    .ico-item{
+        width: 100%;
+        padding: 0;
+    }
+    .works-item{
+        width: 100%;
+        height: 300px;
+    }
+    .team__item{
+        width: 100%;
+        text-align: center;
+    }
+    .team-photo{
+        margin: 0 auto;
+    }
+    .social{
+        justify-content: center;
+    }
+    .team{
+        margin: 50px 0 30px;
+    }
+    .testimonials-text{
+        font-size: 25px;
+    }
+    .btn--long{
+        max-width: 260px;
+    }
+    .download{
+        margin: 50px 0;
+    }
+    .download_title{
+        font-size: 24px;
+    }
+    .footer__block{
+        width: 100%;
+        margin-top: 20px;
+    }
+    .footer__inner {
+        padding: 10px 0 30px;
+    }
+    .footer__block:last-child{
+        margin-bottom: 0;
+    }
+}
+@media(max-width: 414px){
+
+    .testimonials-photo{
+        right: -100px;
+    }
+}
